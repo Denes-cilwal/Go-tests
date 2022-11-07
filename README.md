@@ -63,6 +63,7 @@ Following steps define how to perform TDD test,
 - A unit test is a function that accepts the  argument of type *testing.T and calls the Error (or any other
 - error methods which we will see later) on it. This function must start with Test keyword and the latter name
 - should start with an uppercase letter (for example, TestMultiply and not Testmultiply).
+- unit components can be functions, structs, methods make sure inputs to this components never break application.
 
 
 import "testing"
@@ -78,6 +79,9 @@ func TestAbc(t *testing.T) {
 - red color for failed tests,
 - (install using go get -u github.com/rakyll/gotest command).
 - Run using : go test -v -run TestHelloValidArgs | go test -v -run TestHello
+
+### Running Test:
+- If you have lots of test files with test functions but you want to selectively run few, you can use -run flag to match test functions with their name - go test -v -run TestHelloEmptyArgs
 
 ### Test Coverage
 
