@@ -47,3 +47,34 @@ func TestSayHelloInvalidArgs(t *testing.T) {
 
 	}
 }
+
+/*
+Table-Driven Test
+You want to test your code with many inputs and
+expected result of these inputs.
+The best approach is creating an array for inputs
+and run tests each item in array and get expected result.
+
+*/
+
+func Test_SayHello_ValidArgument(t *testing.T) {
+
+	inputs := []struct {
+		name   string
+		result string
+	}{
+		{name: "Dinesh", result: "Hello Dinesh"},
+		{name: "Pushan", result: "Hello Pushan"},
+		{name: "Yemek", result: "Hello Yemek!"},
+	}
+
+	for _, item := range inputs {
+		result := sayHello(item.name)
+		if result != item.result {
+			t.Errorf("\"sayHello('%s')\" failed, expected -> %v, got -> %v", item.name, item.result, result)
+		} else {
+			t.Logf("\"sayHello('%s')\" succeded, expected -> %v, got -> %v", item.name, item.result, result)
+		}
+	}
+
+}
