@@ -13,8 +13,8 @@
 - Small regression suite
 
   - You have test case around all code and if you change any part of
-    code and if you chnage any part of code for a new feature you will
-    get advanced feeback incase something in code.
+    code and if you chaage any part of code for a new feature you will
+    get advanced feedback incase something in code.
 
 - Reduction in Bugs
 - Cleaner and Simple Code
@@ -73,6 +73,12 @@ func TestAbc(t *testing.T) {
 
 ```
 
+### A test is not a unit test if 
+-  it talks to the database
+- communicates across the n/w
+- it touches the file system
+- it should only focus on business logic not other dependencies
+
 ### Colorize test output:
 
 - green color for the passed test
@@ -83,6 +89,12 @@ func TestAbc(t *testing.T) {
 ### Running Test:
 - If you have lots of test files with test functions but you want to selectively run few, you can use -run flag to match test functions with their name - go test -v -run TestHelloEmptyArgs
 
+### running all  Test:
+-  go test -v
+
+### running specific Test:
+-  go test -v -run=TestSayHelloEmptyArgs
+
 ### Test Coverage
 
 ```
@@ -91,3 +103,34 @@ It is the measurement of how many lines of code in your package were executed wh
 - go test -coverprofile=cover.text
 
 ```
+
+### Testing workflow TBT & BDT
+
+-  Both of the testing methodologies are adopted extensively in various projects
+-  TBT is used for testing small units of codebase whereas people prefer BDT for integration testing.
+-  TBT approach (unit testing ), functional and integration testing(BDT)
+
+
+### TESTING WORKFLOW (Table Bases Tests)(TBT)
+-  Map/Slice is used to build inputs and expected o/ps
+-  Easy to implement and easy to extend further
+-  Gives clear visualization of What's covered and What's not
+
+### Behaviour Driven Testing(BDT)
+-  Human-readable description of the software requirements
+-  Requires planning and lots of effort
+-  Ginkgo and Gomega framework is preferred by various projects
+
+
+### UNIT TESTING FRAMEWORKS
+-  Subtests and Parallel tests
+-  Mocking (go mock- mockgen)
+-  Fuzzing
+
+
+### Unit Testing
+-  https://utkarshmani1997.medium.com/unit-testing-with-ginkgo-part-1-be7acc6c84c6
+-  https://utkarshmani1997.medium.com/unit-testing-with-ginkgo-part-2-fe6ed881c635
+-  https://utkarshmani1997.medium.com/unit-testing-with-ginkgo-part-3-9c1a4b892e01
+-  https://utkarshmani1997.medium.com/mocking-with-mockgen-43513e3091b5
+
