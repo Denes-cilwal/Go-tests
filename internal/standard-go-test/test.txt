@@ -1,0 +1,14 @@
+- The testing.T type offers methods to control test execution,
+        - such as running tests in parallel with Parallel(),
+        - skipping tests with Skip(), and calling a test teardown function with Cleanup().
+
+
+Errors and Logs
+
+        -The testing.T type provides various practical tools to interact with the test workflow, including t.Errorf(),
+        - which prints out an error message and sets the test as failed.
+
+        - It is important to mention that t.Error* does not stop the execution of the test.
+        - Instead, all encountered errors will be reported once the test is completed.
+        - Sometimes it makes more sense to fail the execution; in that case, you should use t.Fatal*.
+        - In some situations, using the Log*() function to print information during the test execution can be handy:
