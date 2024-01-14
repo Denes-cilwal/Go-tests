@@ -24,3 +24,13 @@ func TestFooer2(t *testing.T) {
 	t.Fatalf("Stop the test now, we have seen enough")
 	t.Error("This won't be executed")
 }
+
+func TestFooerSkiped(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping test in short mode.")
+	}
+	result := Fooer(3)
+	if result != "Foo" {
+		t.Errorf("Result was incorrect, got: %s, want: %s.", result, "Foo")
+	}
+}
